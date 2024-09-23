@@ -26,8 +26,8 @@ describe("Visual Interaction Test", function () {
     server.listen(PORT);
 
     browser = await puppeteer.launch({
-      headless: false,
-      timeout: 30000,
+      headless: true,
+      timeout: 10000,
       args: puppeteerArgs,
     });
   });
