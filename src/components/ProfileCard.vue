@@ -5,18 +5,7 @@
       <div v-if="showMore" class="details-column">
         <h2 class="heading">Details</h2>
         <p><strong>Experience:</strong> 4+ years of software development experience.</p>
-        <p><strong>Skills:</strong> Vue.js, React, JavaScript, TypeScript, CSS, HTML.</p>
-        <p><strong>Location:</strong> San Francisco, CA</p>
-
-        <!-- New Stats Section -->
-        <div class="stats-section">
-          <h3>Stats</h3>
-          <ul>
-            <li><strong>Projects:</strong> 12 Completed</li>
-            <li><strong>Clients:</strong> 5 Active</li>
-            <li><strong>Hours Worked:</strong> 2500+</li>
-          </ul>
-        </div>
+        <p><strong>Skills:</strong> Vue.js, Angular, JavaScript, TypeScript, Node, CSS, HTML.</p>
 
         <!-- New Recent Activity Section -->
         <div class="recent-activity">
@@ -83,9 +72,8 @@ const userData = {
 .profile-card-wrapper {
   display: flex;
   gap: 40px;
-  padding: 20px;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   min-height: 100vh;
 }
 
@@ -105,9 +93,17 @@ const userData = {
   padding: 24px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 350px;
   font-size: 1rem;
   overflow: auto;
+  position: fixed;
+  right: 40px;
+  width: 30%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.heading {
+  margin: 0;
 }
 
 .details-column h2, h3 {
@@ -134,7 +130,6 @@ const userData = {
   color: #00796b;
   text-decoration: none;
   margin-top: 5px;
-  padding: 8px 0;
 }
 
 .links-section a:hover {
@@ -170,6 +165,8 @@ const userData = {
 
 .profile-info h1 {
   margin: 0;
+  line-height: 1;
+  font-size: 24px;
 }
 
 .profile-info .desc {
@@ -219,7 +216,16 @@ const userData = {
   background-color: #ff6b6b;
 }
 
-.card:hover .profile-container {
-  background-color: #7695ff;
+/* Media */
+@media (max-width: 1599px) {
+  .details-column {
+    max-width: 330px;
+  }
+
+  .card img {
+    width: 130px;
+    height: 130px;
+  }
+  
 }
 </style>
