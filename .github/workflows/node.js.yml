@@ -14,8 +14,10 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
-      - run: npm install --save-dev @percy/cli
-      - run: npx percy snapshot public/ # or any directory such as public/
+          node-version: '20'
+      - run: npm install
+      - run: npm run build-storybook
+      - run: npm run test
+      # - run: npx percy snapshot public/ # or any directory such as public/
         env:
           PERCY_TOKEN: $
