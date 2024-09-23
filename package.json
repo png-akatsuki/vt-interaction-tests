@@ -12,7 +12,6 @@
     "test": "percy storybook ./storybook-static"
   },
   "dependencies": {
-    "@brightly/brightlycomponents": "^2.6.9",
     "vue": "^3.4.37"
   },
   "devDependencies": {
