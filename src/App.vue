@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import "@brightly/brightlycomponents/dist/lit/br-app-nav/br-app-nav";
 import ProfileCard from "./components/ProfileCard.vue";
 const headerMenuConfig = {
     id: '1',
