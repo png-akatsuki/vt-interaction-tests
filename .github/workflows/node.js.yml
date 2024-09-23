@@ -20,4 +20,4 @@ jobs:
       - run: npm run test
       # - run: npx percy snapshot public/ # or any directory such as public/
         env:
-          PERCY_TOKEN: $
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
