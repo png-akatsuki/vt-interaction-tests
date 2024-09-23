@@ -22,9 +22,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { defineCustomElement } from "@brightly/brightlycomponents/dist/components/br-card";
-defineCustomElement();
-
 const userData = {
     "name": "Tanea Joshi",
     "avatar": "https://i.ytimg.com/vi/VdddZIcyykM/maxresdefault.jpg",

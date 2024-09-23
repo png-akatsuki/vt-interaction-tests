@@ -16,7 +16,8 @@ jobs:
         with:
           node-version: '20'
       - run: npm install
-      - run: npm run test
+      - run: npm run build
+      - run: npm run test:e2e
       # - run: npx percy snapshot public/ # or any directory such as public/
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
