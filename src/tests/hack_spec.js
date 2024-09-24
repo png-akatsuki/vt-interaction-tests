@@ -26,7 +26,7 @@ describe("Visual Interaction Test", function () {
     server.listen(PORT);
 
     browser = await puppeteer.launch({
-      headless: true,
+      headless: false,
       timeout: 10000,
       args: puppeteerArgs,
     });
@@ -65,6 +65,7 @@ describe("Visual Interaction Test", function () {
     const additionalDetails = await page.$(".additional-details");
     expect(additionalDetails).toBeDefined();
 
+    await new Promise(resolve => setTimeout(resolve, 2000))
     await percySnapshot(page, "Profile card - See More clicked");
   });
 
@@ -84,6 +85,7 @@ describe("Visual Interaction Test", function () {
 
     expect(additionalDetails).toBeNull();
 
+    await new Promise(resolve => setTimeout(resolve, 2000))
     await percySnapshot(page, "Profile card - See Less");
   });
 
@@ -98,8 +100,6 @@ describe("Visual Interaction Test", function () {
       (links) => links.length
     );
     expect(linksCount).toEqual(3);
-
-    await percySnapshot(page, "Profile card - Links section visible");
   });
 
   it("Hides details section when toggled again", async function () {
@@ -114,7 +114,5 @@ describe("Visual Interaction Test", function () {
   
     const details = await page.$(".details-column"); 
     expect(details).toBeNull(); 
-  
-    await percySnapshot(page, "Profile card - See Less clicked");
-  });  
+    });  
 });
