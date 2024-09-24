@@ -533,3 +533,25 @@ body {
   font-size: 0.75rem;
   color: #a7bbeb;
 }
+
+
+@media (max-width: 700px) {
+  .content {
+    align-items: baseline !important;
+    overflow: auto !important;
+    padding: 0 !important;
+  }
+
+  .sidenav.is-collapsed {
+    width: 3.5rem;
+}
+.sidenav {
+  padding: 0.5rem;
+}
+
+.header .sidenav__button-icon {
+  margin-left: -4px;
+}
+
+
+}

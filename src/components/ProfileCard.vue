@@ -253,12 +253,10 @@ a {
   .details-column {
     width: 100%;
   }
-  .content {
-    align-items: baseline;
-    overflow: scroll;
-  }
+  
   .profile-card-wrapper {
     flex-direction: column;
+    padding:10px;
   }
 }
 </style>
