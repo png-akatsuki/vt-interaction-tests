@@ -104,9 +104,9 @@ const userData = {
   background: #48ff9bab;
   padding: 24px;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   max-width: 350px;
-  font-size: 1rem;
+  font-size: 4rem;
   overflow: auto;
 }
 
