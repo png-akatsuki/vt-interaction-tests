@@ -105,8 +105,8 @@ const extraItems = [
             </div>
           </div>
           <div class="user__text">
-            <span class="user__name">John Smith</span>
-            <span class="user__title">Web developer</span>
+            <span class="user__name">Tanea Joshi</span>
+            <span class="user__title">Sr. Software Engineer</span>
           </div>
         </button>
       </div>
