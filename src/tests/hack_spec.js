@@ -53,6 +53,40 @@ describe("Visual Interaction Test", function () {
     await percySnapshot(page, "app-loaded-" + this.test.fullTitle());
   });
 
+  // Menu interaction UI tests
+  it("Expands the Menu", async function () {
+    const expandMenuBtn = await page.$(".expand-button");
+    const sidenav = await page.$(".sidenav");
+    expect(expandMenuBtn).toBeDefined();
+
+    await expandMenuBtn.click();
+
+    const isCollapsed = await sidenav.evaluate((el) => el.classList.contains('is-collapsed'));
+    expect(isCollapsed).toBe(false); 
+
+    await new Promise(resolve => setTimeout(resolve, 1500))
+    await percySnapshot(page, this.test.fullTitle());
+  });
+
+  it("Collapse the Menu", async function () {
+    const expandMenuBtn = await page.$(".expand-button");
+    const sidenav = await page.$(".sidenav");
+    expect(expandMenuBtn).toBeDefined();
+
+    await expandMenuBtn.click();
+
+    await expandMenuBtn.click();
+
+    const isCollapsed = await sidenav.evaluate((el) => el.classList.contains('is-collapsed'));
+    await new Promise(resolve => setTimeout(resolve, 500))
+
+    expect(isCollapsed).toBe(true); 
+
+    await new Promise(resolve => setTimeout(resolve, 1500))
+    await percySnapshot(page, this.test.fullTitle());
+  });
+
+  //Details Interaction tests
   it("Toggles the 'See More' section", async function () {
     const seeMoreBtn = await page.$(".see-more-btn");
     expect(seeMoreBtn).toBeDefined();

@@ -36,7 +36,7 @@ const extraItems = [
           <i class="fa fa-cube" aria-hidden="true"></i>
         </span>
         <span class="header__text">Application</span>
-        <button class="sidenav__button" aria-label="Expand" @click="toggle">
+        <button class="sidenav__button expand-button" aria-label="Expand" @click="toggle">
           <span class="sidenav__button-icon">
             <i class="fa fa-angle-left" aria-hidden="true"></i>
           </span>
