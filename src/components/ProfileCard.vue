@@ -68,7 +68,7 @@ const showMore = ref(false);
 const userData = {
   name: "Tanea Joshi",
   avatar:
-    "https://media.licdn.com/dms/image/v2/D4D03AQHBHO5cSLRsaA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1680801374382?e=2147483647&v=beta&t=vX3pvgGNPbnlPDadGVpyfRrddiZdc6j4L3bRtKgXw48",
+    "/profile.jpg",
   title: "Sr. Software Engineer",
   description: "I am a software engineer with 4+ years of experience.",
 };
@@ -79,8 +79,10 @@ const userData = {
 .profile-card-wrapper {
   display: flex;
   gap: 40px;
-  align-items: center;
-  min-height: 100vh;
+  align-items: stretch;
+  min-height: 420px;
+  padding: 20px;
+  width: 100%;
 }
 
 /* Animation Styles */
@@ -105,6 +107,7 @@ const userData = {
 
 /* Sidebar (Details Column) */
 .details-column {
+  flex-grow: 1;
   background: #48ff9bab;
   padding: 24px;
   border-radius: 16px;
@@ -233,13 +236,27 @@ a {
 
 /* Media */
 @media (max-width: 1599px) {
-  .details-column {
-    max-width: 330px;
-  }
 
   .card img {
     width: 130px;
     height: 130px;
+  }
+}
+
+@media (max-width: 700px) {
+  .app {
+    overflow: auto;
+  }
+  .card {
+    width: 100%;
+  }
+  .details-column {
+    width: 100%;
+  }
+  
+  .profile-card-wrapper {
+    flex-direction: column;
+    padding:10px;
   }
 }
 </style>

@@ -85,6 +85,10 @@ body {
   flex: 1;
   border-radius: 1rem;
   padding: 1rem;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sidenav {
@@ -528,4 +532,26 @@ body {
 .user__title {
   font-size: 0.75rem;
   color: #a7bbeb;
+}
+
+
+@media (max-width: 700px) {
+  .content {
+    align-items: baseline !important;
+    overflow: auto !important;
+    padding: 0 !important;
+  }
+
+  .sidenav.is-collapsed {
+    width: 3.5rem;
+}
+.sidenav {
+  padding: 0.5rem;
+}
+
+.header .sidenav__button-icon {
+  margin-left: -4px;
+}
+
+
 }
