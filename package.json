@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test": "percy storybook ./storybook-static",
+    "test": "mocha ./src/tests/",
     "test:e2e": "percy exec -- mocha ./src/tests/ --exit"
   },
   "dependencies": {

@@ -53,35 +53,100 @@ describe("Visual Interaction Test", function () {
     await percySnapshot(page, "app-loaded-" + this.test.fullTitle());
   });
 
+  // Menu interaction UI tests
+  it("Expands the Menu", async function () {
+    const expandMenuBtn = await page.$(".expand-button");
+    const sidenav = await page.$(".sidenav");
+    expect(expandMenuBtn).toBeDefined();
 
-  // Leaving codes below for the reference of further test cases. 
-  // it('With no todos, hides main section', async function () {
-  //   let display = await page.evaluate(() => document.querySelector('.main').style.display);
+    await expandMenuBtn.click();
 
-  //   expect(display).toEqual('none');
-  // });
+    const isCollapsed = await sidenav.evaluate((el) => el.classList.contains('is-collapsed'));
+    expect(isCollapsed).toBe(false); 
 
-  // it('Accepts a new todo', async function () {
-  //   await page.type('.new-todo', 'New fancy todo');
-  //   await page.keyboard.press('Enter');
+    await new Promise(resolve => setTimeout(resolve, 1500))
+    await percySnapshot(page, this.test.fullTitle());
+  });
 
-  //   let todoCount = await page.evaluate(() => document.querySelectorAll('.todo-list li').length);
-  //   expect(todoCount).toEqual(1);
+  it("Collapse the Menu", async function () {
+    const expandMenuBtn = await page.$(".expand-button");
+    const sidenav = await page.$(".sidenav");
+    expect(expandMenuBtn).toBeDefined();
 
-  //   await percySnapshot(page, 'Snapshot with new todo', { widths: [300] });
-  // });
+    await expandMenuBtn.click();
 
-  // it('Lets you check off a todo', async function () {
-  //   await page.type('.new-todo', 'A thing to accomplish');
-  //   await page.keyboard.press('Enter');
+    await expandMenuBtn.click();
 
-  //   let itemsLeft = await page.evaluate(() => document.querySelector('.todo-count').textContent);
-  //   expect(itemsLeft).toEqual('1 item left');
+    const isCollapsed = await sidenav.evaluate((el) => el.classList.contains('is-collapsed'));
+    await new Promise(resolve => setTimeout(resolve, 500))
 
-  //   await page.click('input.toggle');
-  //   itemsLeft = await page.evaluate(() => document.querySelector('.todo-count').textContent);
-  //   expect(itemsLeft).toEqual('0 items left');
+    expect(isCollapsed).toBe(true); 
 
-  //   await percySnapshot(page, this.test.fullTitle(), { widths: [768, 992, 1200] });
-  // });
+    await new Promise(resolve => setTimeout(resolve, 1500))
+    await percySnapshot(page, this.test.fullTitle());
+  });
+
+  //Details Interaction tests
+  it("Toggles the 'See More' section", async function () {
+    const seeMoreBtn = await page.$(".see-more-btn");
+    expect(seeMoreBtn).toBeDefined();
+
+    await seeMoreBtn.click();
+
+    const details = await page.waitForSelector(".details-column");
+    expect(details).toBeDefined();
+
+    const additionalDetails = await page.$(".additional-details");
+    expect(additionalDetails).toBeDefined();
+
+    await new Promise(resolve => setTimeout(resolve, 2000))
+    await percySnapshot(page, "Profile card - See More clicked");
+  });
+
+  it("Toggles the 'See Less' section back to hidden state", async function () {
+    const seeMoreBtn = await page.$(".see-more-btn");
+    expect(seeMoreBtn).toBeDefined();
+
+    await seeMoreBtn.click();
+
+    const details = await page.waitForSelector(".details-column");
+    expect(details).toBeDefined();
+
+    await seeMoreBtn.click();
+
+    const additionalDetails = await page.$(".additional-details");
+    expect(additionalDetails).toBeNull();
+
+    expect(additionalDetails).toBeNull();
+
+    await new Promise(resolve => setTimeout(resolve, 2000))
+    await percySnapshot(page, "Profile card - See Less");
+  });
+
+  it("Verifies links section after 'See More'", async function () {
+    await page.click(".see-more-btn");
+
+    const linksSection = await page.waitForSelector(".links-section");
+    expect(linksSection).toBeDefined();
+
+    const linksCount = await page.$$eval(
+      ".links-section a",
+      (links) => links.length
+    );
+    expect(linksCount).toEqual(3);
+  });
+
+  it("Hides details section when toggled again", async function () {
+    await page.click(".see-more-btn");
+  
+    await page.waitForSelector(".details-column");
+  
+    await page.click(".see-more-btn");
+  
+    //TODO: Need to check in docs for better way for waiting or delay
+    await new Promise(resolve => setTimeout(resolve, 2000))
+  
+    const details = await page.$(".details-column"); 
+    expect(details).toBeNull(); 
+    });  
 });
