@@ -1,32 +1,5 @@
 <template>
   <div class="profile-card-wrapper">
-    <!-- Sidebar Column -->
-    <transition name="slide-fade">
-      <div v-if="showMore" class="details-column">
-        <h2 class="heading">Details</h2>
-        <p><strong>Experience:</strong> 4+ years of software development experience.</p>
-        <p><strong>Skills:</strong> Vue.js, Angular, JavaScript, TypeScript, Node, CSS, HTML.</p>
-
-        <!-- New Recent Activity Section -->
-        <div class="recent-activity">
-          <h3>Recent Activity</h3>
-          <ul>
-            <li>Updated profile information - 2 hours ago</li>
-            <li>Completed project for ABC Corp - 3 days ago</li>
-            <li>Attended VueConf 2023 - 1 week ago</li>
-          </ul>
-        </div>
-
-        <!-- New Links Section -->
-        <div class="links-section">
-          <h3>Quick Links</h3>
-          <a href="#">Portfolio</a>
-          <a href="#">Contact</a>
-          <a href="#">Resume</a>
-        </div>
-      </div>
-    </transition>
-
     <!-- Main Profile Card -->
     <div class="card">
       <div class="profile-container">
@@ -51,6 +24,39 @@
       </div>
       <div class="card-bottom"></div>
     </div>
+
+    <!-- Sidebar Column -->
+    <transition name="slide-fade">
+      <div v-if="showMore" class="details-column">
+        <h2 class="heading">Details</h2>
+        <p>
+          <strong>Experience:</strong> 4+ years of software development
+          experience.
+        </p>
+        <p>
+          <strong>Skills:</strong> Vue.js, Angular, JavaScript, TypeScript,
+          Node, CSS, HTML.
+        </p>
+
+        <!-- New Recent Activity Section -->
+        <div class="recent-activity">
+          <h3>Recent Activity</h3>
+          <ul>
+            <li>Updated profile information - 2 hours ago</li>
+            <li>Completed project for ABC Corp - 3 days ago</li>
+            <li>Attended VueConf 2023 - 1 week ago</li>
+          </ul>
+        </div>
+
+        <!-- New Links Section -->
+        <div class="links-section">
+          <h3>Quick Links</h3>
+          <a href="#">Portfolio</a>
+          <a href="#">Contact</a>
+          <a href="#">Resume</a>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -61,7 +67,8 @@ const showMore = ref(false);
 
 const userData = {
   name: "Tanea Joshi",
-  avatar: "https://media.licdn.com/dms/image/v2/D4D03AQHBHO5cSLRsaA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1680801374382?e=2147483647&v=beta&t=vX3pvgGNPbnlPDadGVpyfRrddiZdc6j4L3bRtKgXw48",
+  avatar:
+    "https://media.licdn.com/dms/image/v2/D4D03AQHBHO5cSLRsaA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1680801374382?e=2147483647&v=beta&t=vX3pvgGNPbnlPDadGVpyfRrddiZdc6j4L3bRtKgXw48",
   title: "Sr. Software Engineer",
   description: "I am a software engineer with 4+ years of experience.",
 };
@@ -72,19 +79,28 @@ const userData = {
 .profile-card-wrapper {
   display: flex;
   gap: 40px;
-  justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
 
 /* Animation Styles */
-.slide-fade-enter-active, .slide-fade-leave-active {
+.slide-fade-enter-active,
+.slide-fade-leave-active {
   transition: all 0.5s ease;
 }
 
-.slide-fade-enter-from, .slide-fade-leave-to {
+.slide-fade-enter-from,
+.slide-fade-leave-to {
   opacity: 0;
   transform: translateX(-30px);
+}
+
+.additional-details {
+  margin-top: 1rem;
+}
+
+.additional-details p {
+  margin-bottom: 0.6rem;
 }
 
 /* Sidebar (Details Column) */
@@ -95,23 +111,22 @@ const userData = {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-size: 1rem;
   overflow: auto;
-  position: fixed;
-  right: 40px;
   width: 30%;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 .heading {
   margin: 0;
 }
 
-.details-column h2, h3 {
+.details-column h2,
+h3 {
   color: #002743;
   margin-bottom: 10px;
 }
 
-.details-column p, li, a {
+.details-column p,
+li,
+a {
   color: #004d60;
   margin-bottom: 8px;
   font-size: 0.9rem;
@@ -226,6 +241,5 @@ const userData = {
     width: 130px;
     height: 130px;
   }
-  
 }
 </style>
