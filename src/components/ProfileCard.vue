@@ -66,7 +66,7 @@ import { ref } from "vue";
 const showMore = ref(false);
 
 const userData = {
-  name: "Tanea Joshi",
+  name: "John Doe",
   avatar:
     "/profile.jpg",
   title: "Sr. Software Engineer",
@@ -112,7 +112,7 @@ const userData = {
   padding: 24px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-size: 1rem;
+  font-size: 1.3rem;
   overflow: auto;
   width: 30%;
 }
