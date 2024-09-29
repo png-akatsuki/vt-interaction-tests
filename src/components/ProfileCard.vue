@@ -74,7 +74,7 @@ const userData = {
 };
 </script>
 
-<style scoped>
+<style>
 /* Global Styles */
 .profile-card-wrapper {
   display: flex;
@@ -83,6 +83,15 @@ const userData = {
   min-height: 420px;
   padding: 20px;
   width: 100%;
+}
+
+.profile-info h1,
+.details-column {
+  font-size: 1.3rem !important;
+}
+
+.search {
+  display: none;
 }
 
 /* Animation Styles */
