@@ -85,9 +85,8 @@ const userData = {
   width: 100%;
 }
 
-.profile-info h1,
 .details-column {
-  font-size: 1.3rem !important;
+  font-size: 1.1rem !important;
 }
 
 .search {
