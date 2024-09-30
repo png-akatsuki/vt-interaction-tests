@@ -48,7 +48,6 @@ export const WithBrightlyNav: Story = {
             additionalSnapshots: [
               { prefix: '[Dark mode] ', args: { colorScheme: 'dark' } },
               { suffix: ' with globals', globals: { textDirection: 'rtl' } },
-            //   { name: 'Search snapshot', queryParams: { search: '.profile-social' } }
             ]
           }
     },
