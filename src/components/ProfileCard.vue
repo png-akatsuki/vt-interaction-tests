@@ -77,7 +77,7 @@ const userData = {
 };
 </script>
 
-<style scoped>
+<style>
 /* Global Styles */
 .profile-card-wrapper {
   display: flex;
@@ -234,6 +234,10 @@ a {
 
 .search {
   display: none;
+}
+
+.details-column {
+  font-size: 1.1rem !important;
 }
 
 .see-more-btn:hover {
