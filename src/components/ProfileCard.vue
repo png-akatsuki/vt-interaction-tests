@@ -77,7 +77,7 @@ const userData = {
 };
 </script>
 
-<style>
+<style scoped>
 /* Global Styles */
 .profile-card-wrapper {
   display: flex;
