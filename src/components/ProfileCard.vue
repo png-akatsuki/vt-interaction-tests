@@ -232,6 +232,10 @@ a {
   color: #fff;
 }
 
+.search {
+  display: none;
+}
+
 .see-more-btn:hover {
   background-color: #005f4f;
 }
