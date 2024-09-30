@@ -12,6 +12,9 @@
         <button @click="showMore = !showMore" class="see-more-btn">
           {{ showMore ? "See Less" : "See More" }}
         </button>
+        <button class="see-more-btn close">
+          Close
+        </button>
         <div v-if="showMore" class="additional-details">
           <p><strong>Email:</strong> tanea.joshi@si-eam.com</p>
           <p><strong>Phone:</strong> +91 989798046868</p>
@@ -74,7 +77,7 @@ const userData = {
 };
 </script>
 
-<style>
+<style scoped>
 /* Global Styles */
 .profile-card-wrapper {
   display: flex;
@@ -83,14 +86,6 @@ const userData = {
   min-height: 420px;
   padding: 20px;
   width: 100%;
-}
-
-.details-column {
-  font-size: 1.1rem !important;
-}
-
-.search {
-  display: none;
 }
 
 /* Animation Styles */
@@ -224,6 +219,17 @@ a {
   border-radius: 4px;
   cursor: pointer;
   font-size: 0.9rem;
+}
+
+.see-more-btn.close {
+  background: #fff;
+  color: #00796b;
+  border: 1px solid #00796b;
+  margin-left: 5px;
+}
+
+.see-more-btn.close:hover {
+  color: #fff;
 }
 
 .see-more-btn:hover {
